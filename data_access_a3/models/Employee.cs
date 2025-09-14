@@ -1,6 +1,6 @@
-﻿namespace practik_a2
+﻿namespace data_access_a3.models
 {
-    class Employee
+    public class Employee
     {
         public int Id { get; set; }
         public string? FullName { get; set; }

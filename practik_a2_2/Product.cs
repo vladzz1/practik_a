@@ -1,4 +1,4 @@
-﻿namespace practik_a2
+﻿namespace practik_a2_2
 {
     class Product
     {
