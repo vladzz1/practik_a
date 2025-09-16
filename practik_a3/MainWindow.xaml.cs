@@ -9,14 +9,14 @@ namespace practik_a3;
 /// </summary>
 public partial class MainWindow : Window
 {
-    Sales sales;
+    SalesDb sales;
     public MainWindow()
     {
         InitializeComponent();
 
         string connectionString = ConfigurationManager.ConnectionStrings["SalesConnection"].ConnectionString;
 
-        sales = new Sales(connectionString);
+        sales = new SalesDb(connectionString);
     }
     private void Button_Click(object sender, RoutedEventArgs e)
     {

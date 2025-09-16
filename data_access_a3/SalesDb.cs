@@ -3,10 +3,10 @@ using Microsoft.Data.SqlClient;
 
 namespace practik_a2
 {
-    public class Sales : IDisposable
+    public class SalesDb : IDisposable
     {
         private SqlConnection sqlConnection;
-        public Sales(string connectionString)
+        public SalesDb(string connectionString)
         {
             sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
@@ -118,9 +118,9 @@ namespace practik_a2
             {
                 employee.Id = (int)reader[0];
                 employee.FullName = (string)reader[1];
-                employee.HireDate = (string)reader[2];
-                employee.Gender = (char)reader[3];
-                employee.Salary = (int)reader[4];
+                employee.HireDate = (DateTime)reader[2];
+                employee.Gender = (string)reader[3];
+                employee.Salary = (decimal)reader[4];
             }
 
             reader.Close();
@@ -155,7 +155,7 @@ namespace practik_a2
         }
         public List<Client> showClients()
         {
-            string text = "select * from Client";
+            string text = "select * from Clients";
 
             SqlCommand command = new SqlCommand(text, sqlConnection);
             SqlDataReader reader = command.ExecuteReader();
@@ -171,9 +171,9 @@ namespace practik_a2
                         FullName = (string)reader[1],
                         Email = (string)reader[2],
                         Phone = (string)reader[3],
-                        Gender = (char)reader[4],
+                        Gender = (string)reader[4],
                         PercentSale = (int)reader[5],
-                        Subscribe = (int)reader[6]
+                        Subscribe = (bool)reader[6]
                     }
                 );
             }
@@ -182,7 +182,7 @@ namespace practik_a2
         }
         public List<Employee> showEmployees()
         {
-            string text = "select * from Employee";
+            string text = "select * from Employees";
 
             SqlCommand command = new SqlCommand(text, sqlConnection);
             SqlDataReader reader = command.ExecuteReader();
@@ -196,9 +196,9 @@ namespace practik_a2
                     {
                         Id = (int)reader[0],
                         FullName = (string)reader[1],
-                        HireDate = (string)reader[2],
-                        Gender = (char)reader[3],
-                        Salary = (int)reader[4]
+                        HireDate = (DateTime)reader[2],
+                        Gender = (string)reader[3],
+                        Salary = (decimal)reader[4]
                     }
                 );
             }
@@ -220,12 +220,12 @@ namespace practik_a2
                     new Salle()
                     {
                         Id = (int)reader[0],
-                        Price = (int)reader[1],
+                        Price = (decimal)reader[1],
                         Quantity = (int)reader[2],
                         ProductId = (int)reader[3],
                         EmployeeId = (int)reader[4],
                         ClientId = (int)reader[5],
-                        DateOfSale = (string)reader[6]
+                        DateOfSale = (DateTime)reader[6]
                     }
                 );
             }

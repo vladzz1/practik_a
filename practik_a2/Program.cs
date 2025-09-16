@@ -17,7 +17,7 @@ namespace practik_a2
             //    Producer = "Італія",
             //    Price = 6000
             //};
-            using (Sales sales = new Sales(connectionString))
+            using (SalesDb sales = new SalesDb(connectionString))
             {
                 //sales.addOneProduct(product);
 

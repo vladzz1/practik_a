@@ -1,7 +1,5 @@
 ﻿using System.Data.SqlClient;
 using System.Text;
-using System.Xml.Linq;
-using System.Xml;
 
 namespace practik_a2_2
 {
