@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+using practik_a5.entities;
 
 namespace practik_a5
 {
@@ -8,7 +8,7 @@ namespace practik_a5
         public musicAppDbContext()
         {
             //Database.EnsureDeleted();
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
         public DbSet<Style> Styles { get; set; }
         public DbSet<Executor> Executors { get; set; }
@@ -160,61 +160,5 @@ namespace practik_a5
                 }
             });
         }
-    }
-    class Style
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
-        public string? Name { get; set; }
-        public ICollection<Disk>? Discs { get; set; }
-    }
-    class Executor
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
-        public string? Name { get; set; }
-        [Required, MaxLength(50)]
-        public string? LastName { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public ICollection<Disk>? Discs { get; set; }
-    }
-    class Publisher
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
-        public string? Name { get; set; }
-        public Country? Country { get; set; }
-        public int CountryId { get; set; }
-        public ICollection<Disk>? Discs { get; set; }
-    }
-    class Country
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
-        public string? Name { get; set; }
-        public ICollection<Publisher>? Publishers { get; set; }
-    }
-    class Song
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
-        public string? SongTitle { get; set; }
-        public int SongLength { get; set; }
-        public Disk? Disk { get; set; }
-        public int DiskId { get; set; }
-    }
-    class Disk
-    {
-        public int Id { get; set; }
-        [Required, MaxLength(50)]
-        public string? DiskName { get; set; }
-        public DateTime ReleaseDate { get; set; }
-        public Style? Style { get; set; }
-        public int StyleId { get; set; }
-        public Executor? Executor { get; set; }
-        public int ExecutorId { get; set; }
-        public Publisher? Publisher { get; set; }
-        public int PublisherId { get; set; }
-        public ICollection<Song>? Songs { get; set; }
     }
 }
