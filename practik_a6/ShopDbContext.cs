@@ -15,7 +15,7 @@ namespace practik_a6
         public DbSet<Worker> Workers { get; set; }
         public ShopDbContext()
         {
-            Database.EnsureCreated();
+            
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

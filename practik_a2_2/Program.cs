@@ -1,4 +1,4 @@
-﻿using System.Data.SqlClient;
+﻿/*using System.Data.SqlClient;
 using System.Text;
 
 namespace practik_a2_2
@@ -159,3 +159,4 @@ namespace practik_a2_2
         }
     }
 }
+*/
